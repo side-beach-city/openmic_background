@@ -6,7 +6,7 @@ if(sessionStorage[GUESTSAVE]){
   guestnames.querySelector("li").remove();
   sessionStorage.getItem(GUESTSAVE).split("\n").forEach(n => {
     let li = document.createElement("li");
-    li.textContent = n;
+    li.innerHTML = n;
     guestnames.appendChild(li);
   });
 }
@@ -18,7 +18,7 @@ if(sessionStorage[FONTSIZE]){
 guestnames.addEventListener("input",function(){
   var guest = [];
   Array.from(guestnames.querySelectorAll("li")).forEach(i => {
-    guest.push(i.textContent);
+    guest.push(i.innerHTML);
   });
   sessionStorage.setItem(GUESTSAVE, guest.join("\n"))
 });
